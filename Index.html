@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Report - Projeto Zabbix Banpará</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .container-print {
+                max-width: 100% !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 min-h-screen">
+    <div class="max-w-7xl mx-auto container-print">
+        
+        <!-- Header Actions (Print / Edit info) -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4 no-print">
+            <div>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 mb-1">
+                    <i class="fas fa-edit mr-1">
+</i> Documento Editável
+                </span>
+                <p class="text-xs text-slate-500">Você pode editar diretamente qualquer texto nesta página e clicar em "Imprimir / Salvar PDF".</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="window.print()" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 shadow-sm transition-colors">
+                    <i class="fas fa-print mr-2">
+</i> Imprimir / Salvar PDF
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Header Banner -->
+        <header class="bg-slate-900 text-white rounded-xl p-6 shadow-lg mb-6 border border-slate-800">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="bg-blue-500 text-white text-xs font-bold px-2.5 py-1 rounded uppercase tracking-wider">Governança ITSM</span>
+                        <span class="text-slate-400 text-sm">| Projeto Zabbix</span>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight" contenteditable="true">
+                        Status Report — Monitoramento Zabbix Banpará
+                    </h1>
+                    <p class="text-slate-400 text-sm mt-1" contenteditable="true">
+                        Acompanhamento quinzenal de pendências, bloqueios interdepartamentais e rastreabilidade de chamados.
+                    </p>
+                </div>
+                <div class="bg-slate-800/80 p-4 rounded-lg border border-slate-700 w-full md:w-auto min-w-[240px]">
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
+                        <span class="text-slate-400">Emissão:</span>
+                        <span class="font-semibold text-slate-200" contenteditable="true">Setembro / 2026</span>
+                        <span class="text-slate-400">Responsável:</span>
+                        <span class="font-semibold text-slate-200" contenteditable="true">Analista de Monitoramento</span>
+                        <span class="text-slate-400">Destino:</span>
+                        <span class="font-semibold text-blue-400" contenteditable="true">Coordenação / GEMON</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- KPI Dashboard Cards -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Total Mapeado</p>
+                        <h3 class="text-3xl font-black text-slate-800 mt-1" contenteditable="true"></h3>
+                    </div>
+                    <span class="p-2 bg-blue-50 text-blue-600 rounded-lg">
+                        <i class="fas fa-list-check text-xl">
+</i>
+                    </span>
+                </div>
+                <p class="text-xs text-slate-500 mt-3" contenteditable="true">Demandas no inventário atual</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl border border-amber-200 bg-amber-50/30 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-semibold uppercase text-amber-600 tracking-wider">Pendentes / Bloqueados</p>
+                        <h3 class="text-3xl font-black text-amber-700 mt-1" contenteditable="true"></h3>
+                    </div>
+                    <span class="p-2 bg-amber-100 text-amber-600 rounded-lg">
+                        <i class="fas fa-clock text-xl">
+</i>
+                    </span>
+                </div>
+                <p class="text-xs text-amber-700/80 mt-3" contenteditable="true">Aguardando ação externa/gestão</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl border border-rose-200 bg-rose-50/30 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-semibold uppercase text-rose-600 tracking-wider">Sem Chamado</p>
+                        <h3 class="text-3xl font-black text-rose-700 mt-1" contenteditable="true"></h3>
+                    </div>
+                    <span class="p-2 bg-rose-100 text-rose-600 rounded-lg">
+                        <i class="fas fa-triangle-exclamation text-xl">
+</i>
+                    </span>
+                </div>
+                <p class="text-xs text-rose-700/80 mt-3" contenteditable="true">Risco de governança (PIX Geral)</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl border border-emerald-200 bg-emerald-50/30 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-semibold uppercase text-emerald-600 tracking-wider">Em Andamento</p>
+                        <h3 class="text-3xl font-black text-emerald-700 mt-1" contenteditable="true"></h3>
+                    </div>
+                    <span class="p-2 bg-emerald-100 text-emerald-600 rounded-lg">
+                        <i class="fas fa-spinner text-xl">
+</i>
+                    </span>
+                </div>
+                <p class="text-xs text-emerald-700/80 mt-3" contenteditable="true">Atividade em execução técnica</p>
+            </div>
+        </section>
+
+        <!-- Executive Alert / Context Box -->
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-xl mb-6 shadow-sm">
+            <div class="flex items-start">
+                <div class="flex-shrink-0 text-blue-600 mt-0.5">
+                    <i class="fas fa-circle-info text-lg">
+</i>
+                </div>
+                <div class="ml-3 text-sm text-blue-900">
+                    <h4 class="font-bold">Resumo da Situação de Monitoramento Crítico</h4>
+                    <p class="mt-1 leading-relaxed" contenteditable="true">
+                        Este relatório reflete o inventário atual de solicitações de monitoramento no Zabbix Banpará.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Data Table -->
+        <section class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden mb-6">
+            <div class="p-4 bg-slate-50 border-b border-slate-200 flex justify-between items-center flex-wrap gap-2">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-table text-slate-500">
+</i>
+                    <h2 class="font-bold text-slate-800 text-sm uppercase tracking-wide">Planilha Consolidada de Acompanhamento</h2>
+                </div>
+                <span class="text-xs text-slate-500 font-medium">Dados atualizados do inventário</span>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-slate-900 text-white uppercase text-[10px] tracking-wider">
+                        <tr>
+                            <th class="p-3">Equipe Resp.</th>
+                            <th class="p-3">Chamado</th>
+                            <th class="p-3">Resumo da Atividade</th>
+                            <th class="p-3">Status</th>
+                            <th class="p-3">Pendente</th>
+                            <th class="p-3 min-w-[280px]">Motivo da Pendência</th>
+                            <th class="p-3">Designado</th>
+                            <th class="p-3 text-center">Datas (Início / Fim)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <!-- Row 1 -->
+                        <tr class="hover:bg-slate-50 transition-colors bg-rose-50/30">
+                            <td class="p-3 font-semibold text-slate-800" contenteditable="true">GEAUT</td>
+                            <td class="p-3" contenteditable="true">
+                                <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-mono font-bold">--</span>
+                            </td>
+                            <td class="p-3 font-medium text-slate-800" contenteditable="true">PIX COBRANÇA: Criação de monitoramento</td>
+                            <td class="p-3">
+                                <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-bold text-[10px]">PENDENTE</span>
+                            </td>
+                            <td class="p-3 font-bold text-rose-700" contenteditable="true">GEAUT</td>
+                            <td class="p-3 text-slate-600 leading-normal" contenteditable="true">
+                               Foi solicitado o monitoramento do PIX COBRANÇA: COBRANCA-CORE, ARRECADACAO, TITULARIDADE-BANCARIA, CORE-TOKEN-JDPI, ENDEREÇO-CORE, PIX-SAQUE.
+                            </td>
+                            <td class="p-3 font-medium" contenteditable="true">GEAUT</td>
+                            <td class="p-3 text-center text-slate-500" contenteditable="true"><br>
+<span class="text-slate-400">PENDENTE</span></td>
+                        </tr>
+
+                        <!-- Row 2 -->
+                        <tr class="hover:bg-slate-50 transition-colors bg-amber-50/50">
+                            <td class="p-3 font-semibold text-slate-800" contenteditable="true">GEAUT/GERIN</td>
+                            <td class="p-3" contenteditable="true">
+                                <span class="bg-rose-100 text-rose-800 px-2 py-0.5 rounded font-mono font-bold">--</span>
+                            </td>
+                            <td class="p-3 font-medium text-slate-800" contenteditable="true">PIX GERAL</td>
+                            <td class="p-3">
+                                <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-bold text-[10px]">PENDENTE</span>
+                            </td>
+                            <td class="p-3 font-bold text-amber-700" contenteditable="true">GEAUT/GERIN</td>
+                            <td class="p-3 text-slate-600 leading-normal" contenteditable="true">
+                               Solicitar criação de monitoramento dos serviços PIX consultar-lancamentos-jdpi, controle-canal-autenticacao, pagamentoinstantaneo, participante-api, titularidade-bancaria, arrecadacao, consulta-payload, reivindicacaocchave, pagamento-instantaneo, controle-canal-gestao, saque, pix-acesso, autenticacao-pix, consulta-pagamento-interno, iniciacao-pagamento.
+                            </td>
+                            <td class="p-3 font-medium" contenteditable="true">GEAUT/GERIN</td>
+                            <td class="p-3 text-center text-slate-500" contenteditable="true">PENDENTE<br><span class="text-slate-400"></span></td>
+                        </tr>
+                     
+                                        
+                                        
+                        <!-- Row 8 -->
+                        <tr class="hover:bg-slate-50 transition-colors bg-rose-50/20">
+                            <td class="p-3 font-semibold text-slate-800" contenteditable="true">GEMPI</td>
+                            <td class="p-3" contenteditable="true">
+                                <span class="bg-slate-100 text-slate-800 px-2 py-0.5 rounded font-mono font-bold text-[11px]">WO0000000171482<br>WO0000000171558</span>
+                            </td>
+                            <td class="p-3 font-medium text-slate-800" contenteditable="true">Dashboard SPB: Inserção de painéis</td>
+                            <td class="p-3">
+                                <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-bold text-[10px]">PENDENTE</span>
+                            </td>
+                            <td class="p-3 font-bold text-rose-700" contenteditable="true">SSI</td>
+                            <td class="p-3 text-slate-600 leading-normal" contenteditable="true">
+                                Está ocorrendo erro ao realizar a coleta de item no Cluter06 pelo Zabbix. A informação foi repassada ao Victor da 3Structure o seguinte erro do Log: "1037322:20260903:142827.050 cannot get secrets for path "AppID=ZABBIX-Prod&Query=Object=Database-BPA-P-DBA-SQL-APP-clustersql06sqlclust06-Central;Username=central": Cannot perform request: SSL certificate problem: unable to get local issuer certificate".
+                            </td>
+                            <td class="p-3 font-medium" contenteditable="true">SSI</td>
+                            <td class="p-3 text-center text-slate-400" contenteditable="true">PENDENTE</td>
+                        </tr>
+
+                                               
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-3 font-semibold text-slate-800" contenteditable="true">SSI</td>
+                            <td class="p-3" contenteditable="true"><span class="bg-slate-100 text-slate-800 px-2 py-0.5 rounded font-mono font-bold">WO0000000234389</span></td>
+                            <td class="p-3 font-medium text-slate-800" contenteditable="true">Integração Zabbix server/proxy e CyberArk Vault -Pendente do Cliente</td>
+                            <td class="p-3"><span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-bold text-[10px]">PENDENTE</span></td>
+                            <td class="p-3 font-bold text-slate-700" contenteditable="true">CLIENTE</td>
+                            <td class="p-3 text-slate-600 leading-normal" contenteditable="true">Pendente de liberações e validações por parte do cliente.</td>
+                            <td class="p-3 font-medium" contenteditable="true">Enne R Freitas</td>
+                            <td class="p-3 text-center text-slate-400" contenteditable="true">PENDENTE</td>
+                        </tr>
+                                           
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-3 font-semibold text-slate-800" contenteditable="true">GETEL</td>
+                            <td class="p-3" contenteditable="true"><span class="bg-slate-100 text-slate-800 px-2 py-0.5 rounded font-mono font-bold">WO0000000205147</span></td>
+                            <td class="p-3 font-medium text-slate-800" contenteditable="true">Atualização de Monitoramento de telecomunicações  no Zabbix</td>
+                            <td class="p-3"><span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-bold text-[10px]">PENDENCIA COMPARTILHADA</span></td>
+                            <td class="p-3 font-bold text-slate-700" contenteditable="true">GETEL</td>
+                            <td class="p-3 text-slate-600 leading-normal" contenteditable="true">Mapeamento da infraestrutura de telecomunicações.</td>
+                            <td class="p-3 font-medium" contenteditable="true"></td>
+                            <td class="p-3 text-center text-slate-400" contenteditable="true">PENDENTE</td>
+                        </tr>
+
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-3 font-semibold text-slate-800" contenteditable="true">GECAN</td>
+                            <td class="p-3" contenteditable="true"><span class="bg-slate-100 text-slate-800 px-2 py-0.5 rounded font-mono font-bold">WO0000000246914</span></td>
+                            <td class="p-3 font-medium text-slate-800" contenteditable="true">CRIAÇÃO DE MONITORAMENTO DO NOVO APP</td>
+                            <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-bold text-[10px]">EM ANDAMENTO</span></td>
+                            <td class="p-3 font-bold text-slate-700" contenteditable="true">GEINS</td>
+                            <td class="p-3 text-slate-600 leading-normal" contenteditable="true">Foi solicitado criação VM para monitorar os servidores do Novo APP disponíveis na DMZ CRQ000000011010</td>
+                            <td class="p-3 font-medium" contenteditable="true">Monitoramento</td>
+                            <td class="p-3 text-center text-slate-400" contenteditable="true">29/09</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Governance & Recommended Actions -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                <div class="flex items-center gap-2 text-rose-700 font-bold text-sm mb-3">
+                    <i class="fas fa-triangle-exclamation">
+</i>
+                    <h3> Identificação e Necessidade de Criação de Alertas &amp; Monitoramento</h3>
+                </div>
+                <ul class="text-xs text-slate-600 space-y-2.5 list-disc pl-4">
+                    <li contenteditable="true">
+                         <strong>NOVO APLICATIVO DO BANCO</strong>
+                    </li>
+					<li contenteditable="true">
+                         <strong>QRCODE PIX SEFA/TJPA</strong>
+                    </li>
+					<li contenteditable="true">
+                         <strong>SAQUEPAGUE</strong>
+                    </li>
+					<li contenteditable="true">
+                         <strong>SPAWEB</strong>
+                    </li>
+                   
+                </ul>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                <div class="flex items-center gap-2 text-blue-700 font-bold text-sm mb-3">
+                    <i class="fas fa-list-check">
+</i>
+                    <h3>Recorrência de Alertas</h3>
+                </div>
+                <ul class="text-xs text-slate-600 space-y-2.5 list-disc pl-4">
+                    <li contenteditable="true">
+                         <strong>PlayerID Consulta de chave PIX</strong> compartilhado com a área responsável.
+                    </li>
+                    <li contenteditable="true">
+                        <strong>Cenário WEB Externo</strong>IBJ, IBF e Intranet.
+                    </li>
+					<li contenteditable="true">
+                        <strong>Agências</strong>Ipixuna do Pará, Rio Maria e Pau D'arco
+                    </li>
+                    
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-xs text-slate-400 py-4 border-t border-slate-200">
+            <p contenteditable="true">Status Report — Equipe de Monitoramento Zabbix Banpará | Gerado para Governança e Rastreabilidade do Ambiente</p>
+        </footer>
+
+    </div>
+</body>
+</html>
